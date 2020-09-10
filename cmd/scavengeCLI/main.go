@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"path"
 
@@ -27,7 +26,6 @@ import (
 func main() {
 	// Configure cobra to sort commands
 	cobra.EnableCommandSorting = false
-	log.Println("HElLO WORLD #2")
 	// Instantiate the codec for the command line application
 	cdc := app.MakeCodec()
 
@@ -39,8 +37,8 @@ func main() {
 	config.Seal()
 
 	rootCmd := &cobra.Command{
-		Use:   "scavengeCLI HELLO",
-		Short: "Scavenge Client HELLO",
+		Use:   "scavengeCLI",
+		Short: "Scavenge Client",
 	}
 
 	// Add --chain-id to persistent flags and mark it required
@@ -78,7 +76,7 @@ func queryCmd(cdc *amino.Codec) *cobra.Command {
 	queryCmd := &cobra.Command{
 		Use:     "query",
 		Aliases: []string{"q"},
-		Short:   "Querying subcommands hellp",
+		Short:   "Querying subcommands",
 	}
 
 	queryCmd.AddCommand(
